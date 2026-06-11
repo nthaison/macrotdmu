@@ -1,0 +1,991 @@
+%bảng với độ rộng cột xác định
+\usepackage{array}
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+\newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
+\newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
+
+
+%hệ và tuyển phương trình  
+\newcommand{\hhpt}[2]{\left\lbrace\begin{array}{l}#1\\ #2\end{array}\right.}
+\newcommand{\hbpt}[3]{\left\lbrace\begin{array}{l}#1\\ #2\\ #3 \end{array}\right.}
+\newcommand{\hppt}[4]{\left\lbrace\begin{array}{l}#1\\ #2\\ #3\\ #4 \end{array}\right.}
+
+\newcommand{\thpt}[2]{\left[ \begin{array}{l}#1\\#2\end{array}\right.}
+\newcommand{\tbpt}[3]{\left[ \begin{array}{l}#1\#2\\ #3 \end{array}\right.}
+\newcommand{\tppt}[4]{\left[ \begin{array}{l}#1\\ #2\\ #3\\ #4 \end{array}\right.}
+
+
+\newcommand{\motdong}[4]{\begin{tabbing}\hspace{.05\textwidth }\=\hspace{.25\textwidth }\=\hspace{.25\textwidth }\=\hspace{.25\textwidth }\=\kill \> {\textbf{A.}} $#1$. \>  {\textbf{B.}} $#2$. \>  {\textbf{C.}} $#3$. \> {\textbf{D.}} $#4$.\end{tabbing}\vspace*{-.5cm} }
+
+\newcommand{\haidong}[4]{
+
+\begin{tabbing}\hspace{.05\textwidth }\=\hspace{.475\textwidth }\=\kill\> {\textbf{A.}} $#1$. \>  {\textbf{B.}} $#2$. \\ 
+\> {\textbf{C.}} $#3$. \> {\textbf{D.}} $#4$.\end{tabbing} \vspace*{-.5cm} }
+
+
+
+
+%bảng biến thiên
+%\usepackage{luamplib}
+
+\newcommand{\bbtcd}[2]{
+\begin{mplibcode}
+	input tableauVariation
+	beginTableau(0) newLigneVariables(btex $x$ etex);val(btex $-\infty $ etex);
+	val(btex $#1$ etex);
+	val(btex $+\infty $ etex); 
+	newLigneSignes(btex $ f'(x)$ etex);plus; val(btex 0 etex);moins;
+	newLigneVariations(btex $f(x)$ etex);valPos(btex $-\infty$ etex,0); valPos(btex   $#2$
+	etex,1);valPos(btex $-\infty$ etex,0);
+	endTableau;
+\end{mplibcode}
+}
+
+
+\newcommand{\bbtct}[2]{
+\begin{mplibcode}
+	input tableauVariation
+	beginTableau(0) newLigneVariables(btex $x$ etex);val(btex $-\infty $ etex);
+	val(btex $#1$ etex);
+	val(btex $+\infty $ etex); 
+	newLigneSignes(btex $ f'(x)$ etex);moins; val(btex 0 etex);plus;
+	newLigneVariations(btex $f(x)$ etex);valPos(btex $+\infty$ etex,1); valPos(btex   $#2$
+	etex,0);valPos(btex $+\infty$ etex,1);
+	endTableau;
+\end{mplibcode}
+}
+
+\newcommand{\bbtcdct}[4]{
+\begin{mplibcode}
+	input tableauVariation
+	beginTableau(0) newLigneVariables(btex $x$ etex);val(btex $-\infty $ etex);
+	val(btex $#1$ etex);	val(btex $#2$ etex);
+	val(btex $+\infty $ etex); 
+	newLigneSignes(btex $ f'(x)$ etex);plus; val(btex 0 etex);moins;
+val(btex 0 etex);plus;
+	newLigneVariations(btex $f(x)$ etex);valPos(btex $-\infty$ etex,0); valPos(btex   $#3$etex,1);valPos(btex $#4$ etex,0); 
+	valPos(btex $+\infty$ etex,1);
+	endTableau;
+\end{mplibcode}
+}
+
+
+
+\newcommand{\bbtctcd}[4]{
+\begin{mplibcode}
+	input tableauVariation
+	beginTableau(0) newLigneVariables(btex $x$ etex);val(btex $-\infty $ etex);
+	val(btex $#1$ etex);	val(btex $#2$ etex);
+	val(btex $+\infty $ etex); 
+	newLigneSignes(btex $ f'(x)$ etex);moins; val(btex 0 etex);plus;
+val(btex 0 etex);moins;
+	newLigneVariations(btex $f(x)$ etex);valPos(btex $+\infty$ etex,1); valPos(btex   $#3$etex,0);valPos(btex $#4$ etex,1); 
+	valPos(btex $-\infty$ etex,0);
+	endTableau;
+\end{mplibcode}
+}
+
+
+
+\newcommand{\bbtcdctcd}[6]{
+\begin{mplibcode}
+	input tableauVariation
+	beginTableau(0) newLigneVariables(btex $x$ etex);val(btex $-\infty $ etex);
+	val(btex $#1$ etex);	val(btex $#2$ etex);val(btex $#3$ etex);
+	val(btex $+\infty $ etex); 
+	newLigneSignes(btex $ f'(x)$ etex);plus; val(btex 0 etex);moins;
+val(btex 0 etex);plus;val(btex 0 etex);moins;
+	newLigneVariations(btex $f(x)$ etex);valPos(btex $-\infty$ etex,0); valPos(btex   $#4$etex,1);valPos(btex $#5$ etex,0); valPos(btex $#6$ etex,1); 
+	valPos(btex $-\infty$ etex,0);
+	endTableau;
+\end{mplibcode}
+}
+
+\newcommand{\bbtctcdct}[6]{
+\begin{mplibcode}
+	input tableauVariation
+	beginTableau(0) newLigneVariables(btex $x$ etex);val(btex $-\infty $ etex);
+	val(btex $#1$ etex);	val(btex $#2$ etex);val(btex $#3$ etex);
+	val(btex $+\infty $ etex); 
+	newLigneSignes(btex $ f'(x)$ etex);moins; val(btex 0 etex);plus;
+val(btex 0 etex);moins;val(btex 0 etex);plus;
+	newLigneVariations(btex $f(x)$ etex);valPos(btex $+\infty$ etex,1); valPos(btex   $#4$etex,0);valPos(btex $#5$ etex,1); valPos(btex $#6$ etex,0); 
+	valPos(btex $+\infty$ etex,1);
+	endTableau;
+\end{mplibcode}
+}
+
+
+\newcommand{\bbtnbt}[2]{
+\begin{mplibcode}
+input tableauVariation
+beginTableau(0) newLigneVariables(btex $x$ etex);
+val(btex $-\infty $ etex);val(btex $#1$ etex);val(btex $+\infty $ etex);
+ newLigneSignes(btex $\atop{\displaystyle f'(x)}$ etex);plus; nonDefBarre;plus;
+newLigneVariations(btex $\atop{\displaystyle f(x)}$ etex);
+valPos(btex $#2$ etex,0); limGauche(btex $+\infty $ etex,1);nonDefBarre;limDroite(btex $-\infty$ etex,0);valPos(btex $#2$  etex,1);
+endTableau;
+\end{mplibcode}
+}
+
+
+
+
+\newcommand{\bbtnbg}[2]{
+\begin{mplibcode}
+input tableauVariation
+beginTableau(0) newLigneVariables(btex $x$ etex);
+val(btex $-\infty $ etex);val(btex $#1$ etex);val(btex $+\infty $ etex);
+ newLigneSignes(btex $\atop{\displaystyle f'(x)}$ etex);moins; nonDefBarre;moins;
+newLigneVariations(btex $\atop{\displaystyle f(x)}$ etex);
+valPos(btex $#2$ etex,1); limGauche(btex $-\infty $ etex,0);nonDefBarre;limDroite(btex $+\infty$ etex,1);valPos(btex $#2$  etex,0);
+endTableau;
+\end{mplibcode}
+}
+
+\newcommand{\bbtcdkxdct}[5]{
+\begin{mplibcode}
+input tableauVariation
+beginTableau(0) newLigneVariables(btex $x$ etex);
+val(btex $-\infty $ etex);val(btex $#1$ etex);val(btex $#2$ etex);val(btex $#3$ etex);val(btex $+\infty $ etex);
+ newLigneSignes(btex $f'(x)$ etex);plus; val(btex 0 etex);moins;nonDefBarre;moins;val(btex 0 etex);plus;
+newLigneVariations(btex $f(x)$ etex);
+valPos(btex $-\infty$ etex,0); valPos(btex $#4$  etex,1);limGauche(btex $-\infty $ etex,0);nonDefBarre;limDroite(btex $+\infty$ etex,1);valPos(btex $#5$  etex,0);valPos(btex $+\infty$  etex,1);
+endTableau;
+\end{mplibcode}
+}
+
+
+\newcommand{\bbtctkxdcd}[5]{
+\begin{mplibcode}
+input tableauVariation
+beginTableau(0) newLigneVariables(btex $x$ etex);
+val(btex $-\infty $ etex);val(btex $#1$ etex);val(btex $#2$ etex);val(btex $#3$ etex);val(btex $+\infty $ etex);
+ newLigneSignes(btex $f'(x)$ etex);moins; val(btex 0 etex);plus;nonDefBarre;plus;val(btex 0 etex);moins;
+newLigneVariations(btex $f(x)$ etex);
+valPos(btex $+\infty$ etex,1); valPos(btex $#4$  etex,0);limGauche(btex $+\infty $ etex,1);nonDefBarre;limDroite(btex $-\infty$ etex,0);valPos(btex $#5$  etex,1);valPos(btex $-\infty$  etex,0);
+endTableau;
+\end{mplibcode}
+}
+
+\newcommand{\bbtgachcheo}[4]{
+\begin{mplibcode}
+input tableauVariation
+beginTableau(0)
+
+newLigneVariables(btex $x$ etex);
+val(btex $-\infty $ etex);
+val(btex $#1$ etex);
+val(btex $#2$ etex);
+val(btex $+\infty $ etex);
+ 
+newLigneSignes(btex $f'(x)$ etex);moins; debutNonDef;finNonDef;plus;
+newLigneVariations(btex $ f(x)$ etex);valPos(btex $+\infty $ etex,1); limGauche(btex $#3$ etex,0);debutNonDef;finNonDef;limDroite(btex $#4$ etex,0);valPos(btex $+\infty $ etex,1);
+endTableau;
+\end{mplibcode}
+}
+
+\newcounter{vidu}\setcounter{vidu}{0}
+\newcounter{baitap}\setcounter{baitap}{0}
+\newcommand{\baitap}{\refstepcounter{baitap}Bài tập \thebaitap.\quad }
+\newcommand{\vidu}{\refstepcounter{vidu}Ví dụ \thevidu.\quad }
+
+\def\dis{\displaystyle}
+
+\newcommand{\matphang}[1]{
+\begin{mplibcode}
+input couleur;
+beginfig(1);
+numeric u;
+pair t,r;
+transform T,S;
+path p;
+
+u= 1cm;
+t=(4u,0u); r=(1u,2u);
+T = identity shifted t;
+S = identity shifted r;
+
+
+z0=(0u,0u);
+z1 = z0 transformed T;
+z2 = z0 transformed S;
+z3 = z0 transformed T transformed S;
+
+
+p:=z0--z1--z3--z2--cycle;
+
+fill p withcolor bleu_ciel;
+
+
+draw z0--z2;
+draw z2--z3;
+
+
+pickup pencircle scaled 2pt;
+draw z0--z1;
+draw z1--z3;
+
+
+pickup pencircle scaled 0.5pt;
+
+
+label.urt(btex $#1$ etex, z0+(0.1u,0u));
+endfig;
+end
+\end{mplibcode}
+}
+
+
+\newcommand{\giaotuyen}[3]{
+\begin{mplibcode}
+input couleur;
+beginfig(2);
+
+numeric u;
+pair t,r;
+transform T,S;
+path p[],q[];
+
+u= 1cm;
+
+
+t=(4u,0u); r=(1u,2u);
+T = identity shifted t;
+S = identity shifted r;
+
+z0=(0u,0u);
+z1 = z0 transformed T;
+z2 = z0 transformed S;
+z3 = z0 transformed T transformed S;
+
+path p;
+p:=z0--z1--z3--z2--cycle;
+fill p withcolor bleu_ciel;
+
+
+
+draw z0--z2;
+pickup pencircle scaled 2pt;
+draw z0--z1;
+draw z1--z3;
+pickup pencircle scaled 0.5pt;
+label.urt(btex $#1$ etex, z0+(0.1u,0u));
+
+
+z5 = 0.5[z0,z1];
+z6 = z5 transformed S;
+z7 = (2.5u,-1u);
+z8 = z7 transformed S;
+z5 = 0.5[z9,z7];
+z10= z9 transformed S;
+p1 = z2--z6;
+q1= z9--z10;
+z11 = p1 intersectionpoint q1;
+p2 = z7--z8;
+q2= z5--z1;
+z12 = p2 intersectionpoint q2;
+
+
+path pp;
+pp=z7--z8--z10--z9--cycle;
+fill pp withcolor green;
+
+
+
+path ppp;
+ppp:=z5--z6--z11--z9--cycle;
+fill ppp withcolor (green+.55*bleu_ciel);
+
+
+path Pp;
+Pp:=z5--z12--z8--z6--cycle;
+fill Pp withcolor (green +.75*bleu_ciel);
+
+draw z5--z6 withcolor bleu; 
+draw z9--z7;
+draw z9--z10;
+draw z10--z6;
+draw z6--z3;
+draw z6--z8 dashed evenly;
+
+draw z11--z6 dashed evenly;
+draw z2--z11;
+draw z5--z12 withpen pencircle scaled 2pt;
+draw z12--z8 dashed evenly;
+draw z7--z12;
+label.rt(btex $#2$ etex, z9);
+
+
+label.rt(btex $#3$ etex, 0.5[z5,z6])withcolor bleu;
+endfig;
+end
+\end{mplibcode}
+}
+
+
+
+\newcommand{\mpABC}[4]{
+\begin{mplibcode}
+input couleur;
+beginfig(3);
+numeric u;
+pair t,r;
+transform T,S;
+
+u= 1cm;
+t=(4u,0u); r=(1u,2u);
+T = identity shifted t;
+S = identity shifted r;
+
+
+z0=(0u,0u);
+z1 = z0 transformed T;
+z2 = z0 transformed S;
+z3 = z0 transformed T transformed S;
+
+
+path p;
+p:=z0--z1--z3--z2--cycle;
+fill p withcolor bleu_ciel;
+
+
+draw z0--z2;
+draw z2--z3;
+pickup pencircle scaled 2pt;
+draw z0--z1;
+draw z1--z3;
+pickup pencircle scaled 0.5pt;
+label.urt(btex $#1$ etex, z0+(0.1u,0u));
+
+
+dotlabel.top(btex $#2$ etex, (2u,1.5u));
+dotlabel.top(btex $#3$ etex, (1u,.5u));
+dotlabel.top(btex $#4$ etex, (3u,1u));
+endfig;
+end
+\end{mplibcode}
+}
+
+
+
+\newcommand{\mpPddcn}[3]{
+\begin{mplibcode}
+input couleur;
+beginfig(4);
+numeric u;
+pair t,r;
+transform T,S;
+
+u= 1cm;
+t=(4u,0u); r=(1u,2u);
+T = identity shifted t;
+S = identity shifted r;
+
+
+z0=(0u,0u);
+z1 = z0 transformed T;
+z2 = z0 transformed S;
+z3 = z0 transformed T transformed S;
+
+
+
+
+path p;
+p:=z0--z1--z3--z2--cycle;
+fill p withcolor bleu_ciel;
+
+
+
+
+draw z0--z2;
+draw z2--z3;
+pickup pencircle scaled 2pt;
+draw z0--z1;
+draw z1--z3;
+pickup pencircle scaled 0.5pt;
+label.urt(btex $#1$ etex, z0+(0.1u,0u));
+
+
+z4 = (0.8u,1u); z5 =(4u,1.5u);draw z4--z5;
+z6 = (1u,1.6u);z7=(3.6u,0.4u);draw z6--z7;
+label.rt(btex $#2$ etex, z5);
+label.rt(btex $#3$ etex, z7);
+endfig;
+end
+\end{mplibcode}
+}
+
+\newcommand{\mpPAd}[3]{
+\begin{mplibcode}
+input couleur;
+beginfig(5);
+
+numeric u;
+pair t,r;
+transform T,S;
+
+u= 1cm;
+t=(4u,0u); r=(1u,2u);
+T = identity shifted t;
+S = identity shifted r;
+
+
+z0=(0u,0u);
+z1 = z0 transformed T;
+z2 = z0 transformed S;
+z3 = z0 transformed T transformed S;
+
+
+path p;
+p:=z0--z1--z3--z2--cycle;
+fill p withcolor bleu_ciel;
+
+
+draw z0--z2;
+draw z2--z3;
+pickup pencircle scaled 2pt;
+draw z0--z1;
+draw z1--z3;
+pickup pencircle scaled 0.5pt;
+label.urt(btex $#1$ etex, z0+(0.1u,0u));
+
+
+dotlabel.top(btex $#2$ etex, (2u,1.5u));
+z4 = (1u,.5u);
+z5 = (3u,1u);
+draw z4--z5;
+label.top(btex $#3$ etex, z5);
+endfig;
+
+end
+\end{mplibcode}
+}
+
+
+\newcommand{\mpPddss}[3]{
+\begin{mplibcode}
+input couleur;
+beginfig(6);
+
+numeric u;
+pair t,r;
+transform T,S;
+
+u= 1cm;
+t=(4u,0u); r=(1u,2u);
+T = identity shifted t;
+S = identity shifted r;
+
+
+z0=(0u,0u);
+z1 = z0 transformed T;
+z2 = z0 transformed S;
+z3 = z0 transformed T transformed S;
+
+
+
+path p;
+p:=z0--z1--z3--z2--cycle;
+fill p withcolor bleu_ciel;
+
+
+
+draw z0--z2;
+draw z2--z3;
+pickup pencircle scaled 2pt;
+draw z0--z1;
+draw z1--z3;
+pickup pencircle scaled 0.5pt;
+label.urt(btex $#1$ etex, z0+(0.1u,0u));
+
+
+z4 = (1u,1.3u); z5 =(3u,1.8u);draw z4--z5;
+z6 = (1.5u,0.2u);z7 = z6 shifted (z5-z4);draw z6--z7;
+label.rt(btex $#2$ etex, z5);
+label.rt(btex $#3$ etex, z7);
+endfig;
+end
+\end{mplibcode}
+}
+
+
+
+
+\newcommand{\cheonhauPddA}[4]{
+\begin{mplibcode}
+input couleur;
+beginfig(7);
+%representation de deux droites non parallelles et sans point commun
+numeric u;
+pair t,r;
+transform T,S;
+
+u= 1cm;
+t=(4u,0u); r=(1u,2u);
+T = identity shifted t;
+S = identity shifted r;
+path p[];
+
+%tracé du plan
+z0=(0u,0u);
+z1 = z0 transformed T;
+z2 = z0 transformed S;
+z3 = z0 transformed T transformed S;
+
+
+path p;
+p:=z0--z1--z3--z2--cycle;
+fill p withcolor bleu_ciel;
+
+
+draw z0--z2;
+draw z2--z3;
+pickup pencircle scaled 2pt;
+draw z0--z1;
+draw z1--z3;
+pickup pencircle scaled 0.5pt;
+label.urt(btex $#1$ etex, z0+(0.1u,0u));
+
+%tracé de la droite
+z4 = (0.5u,.5u);
+z5 = (4u,1u);
+draw z4--z5;
+label.top(btex $#2$ etex, z5);
+
+%tracé du point
+z6 = (2u,1.5u);
+z7 = (0.2u,1u);
+dotlabel.rt(btex $#4$ etex, z6);
+
+%on met en place les pointillés
+z9 = z6 shifted 2z7;
+z10 = z6 shifted -3z7;
+p1 = z6--z10;
+p2 = z0--z1;
+z11 = p1 intersectionpoint p2;
+draw z6--z11 dashed evenly;
+draw z11--z10;
+draw z6--z9;
+
+%le nom de la droite
+label.rt(btex $#3$ etex, z10);
+endfig;
+end
+\end{mplibcode}
+}
+
+
+\newcommand{\gtmpssPQdd}[4]{
+\begin{mplibcode}
+input couleur;
+beginfig(8);
+
+numeric u;
+pair t,r;
+transform T,S;
+path p[],q[];
+u= 1cm;
+t=(4u,0u); r=(1u,2u);
+T = identity shifted t;
+S = identity shifted r;
+
+
+z0=(0u,0u);
+z1 = z0 transformed T;
+z2 = z0 transformed S;
+z3 = z0 transformed T transformed S;
+
+
+
+path p;
+p:=z0--z1--z3--z2--cycle;
+fill p withcolor bleu_ciel;
+
+
+
+draw z0--z2;
+pickup pencircle scaled 2pt;
+draw z0--z1;
+draw z1--z3;
+pickup pencircle scaled 0.5pt;
+label.urt(btex $#1$ etex, z0+(0.1u,0u));
+
+
+z4=(0u,-2.2u);
+z5 = z4 transformed T;
+z6 = z4 transformed S;
+z7 = z4 transformed T transformed S;
+
+
+path pp;
+pp:=z4--z5--z7--z6--cycle;
+fill pp withcolor 1.2*green;
+
+
+
+draw z4--z6;
+pickup pencircle scaled 2pt;
+draw z4--z5;
+draw z5--z7;
+pickup pencircle scaled 0.5pt;
+label.urt(btex $#2$ etex, z4+(0.1u,0u));
+
+
+z8=1/5[z0,z1]+1/2[z0,z2];
+z9=3/5[z4,z5]+1/2[z6,z4];
+
+z10 = z8 transformed S;
+
+z11 = z9 transformed S;
+p1 = z10--z11;
+q1 = z2--z3;
+q2 = z0--z1;
+q3 = z6--z7;
+z12 = p1 intersectionpoint q1;
+z13 = p1 intersectionpoint q2;
+z14 = p1 intersectionpoint q3;
+
+p2 = z8--z10;
+z15 = p2 intersectionpoint q1;
+
+p3 = z8--z9;
+z16 = p3 intersectionpoint q2;
+z17 = p3 intersectionpoint q3;
+q4 = z4--z5;
+z18 = p3 intersectionpoint q4;
+
+p4 = z9--z11;
+z19 = p4 intersectionpoint q4;
+
+
+path k[];
+
+k[1]:=z8--z10--z11--z9--cycle;
+fill k[1] withcolor rose;
+
+
+k[2]:=z8--z15--z12--z16--cycle;
+fill k[2] withcolor (.75rose+.15bleu_ciel);
+
+
+
+k[3]:=z16--z13--z12--cycle;
+fill k[3] withcolor (.75rose+.35bleu_ciel);
+
+
+k[4]:=z18--z17--z14--z19--cycle;
+fill k[4] withcolor (.75rose+.25green);
+
+
+k[5]:=z18--z19--z11--z14--cycle;
+fill k[5] withcolor (.45rose+.45green);
+
+
+draw z9--z19;draw z19--z11 dashed evenly;
+
+
+draw z8--z9;
+draw z8--z10;
+draw z10--z12; draw z12--z13 dashed evenly;draw z13--z14;draw z14--z11 dashed evenly;
+draw z2--z15; draw z15--z12 dashed evenly;draw z12--z3;
+draw z16--z12;
+draw z6--z17;draw z17--z14 dashed evenly;draw z14--z7;
+draw z18--z14;
+
+pickup pencircle scaled 2pt;
+draw z4--z5;
+draw z0--z1;
+
+
+label.rt(btex $#3$ etex, 0.5[z12,z16]);
+label.rt(btex $#4$ etex, 0.5[z18,z14]);
+endfig;
+
+end
+\end{mplibcode}
+}
+
+
+
+\newcommand{\haimpssdtPQdd}[4]{
+\begin{mplibcode}
+input couleur;
+beginfig(9);
+
+numeric u;
+pair t,r;
+transform T,S;
+path p[];
+
+u= 1cm;
+t=(4u,1u); r=(0u,2u);
+T = identity shifted t;
+S = identity shifted r;
+
+
+z0=(0u,0u);
+z1 = z0 transformed T;
+z2 = z0 transformed S;
+z3 = z0 transformed T transformed S;
+
+
+path p;
+p:=z0--z1--z3--z2--cycle;
+fill p withcolor bleu_ciel;
+
+
+draw z0--z2;
+draw z2--z3;
+draw z1--z3;
+pickup pencircle scaled 0.5pt;
+label.urt(btex $#1$ etex, z0+(0.1u,0u));
+
+
+z4=0.5[z0,z1];
+z5 = z4 transformed S;
+
+z6 = z4 shifted (1.5u,-1u);
+z4=0.5[z6,z7];
+z8 = z6 transformed S;
+z9 = z7 transformed S;
+
+p1= z4--z1;
+p2 = z6--z8;
+z10 = p1 intersectionpoint p2;
+
+p3 = z2--z3; p4 = z9--z7;
+z11 = p3 intersectionpoint p4;
+
+
+
+path k[];
+
+k[1]:=z8--z9--z7--z6--cycle;
+fill k[1] withcolor green;
+
+
+k[2]:=z11--z5--z4--z7--cycle;
+fill k[2] withcolor (.75bleu_ciel+green);
+
+
+
+k[3]:=z5--z8--z10--z4--cycle;
+fill k[3] withcolor (green+.55bleu_ciel);
+
+draw z5--z11;
+
+
+draw z11--z9;draw z11--z7 dashed evenly; draw z7--z4 dashed evenly;
+label.lft(btex $#2$ etex, z6+(0u,0.5u));
+draw z4--z5 withcolor red;
+label.lft(btex $#3$ etex,0.5[z4,z5])withcolor red;
+draw z0--z4;draw z4--z6;draw z6--z8;draw z8--z9;draw z4--z7 dashed evenly;
+draw z4--z10 dashed evenly;draw z10--z1;
+
+
+z12 = (-1u,0u);
+z13 = z12 shifted (0u,3u);
+draw z13--z12 withcolor red;
+label.lft(btex $#4$ etex, z12)withcolor red;
+endfig;
+end
+\end{mplibcode}
+}
+
+
+\newcommand{\haimpdtssddd}[3]{
+\begin{mplibcode}
+input couleur;
+beginfig(10);
+
+numeric u;
+pair t,r,v;
+transform T,S,V;
+path p[];
+
+u= 1cm;
+t=(3u,2u); r=(-2u,1.5u);v=(-3u,0u); 
+T = identity shifted t;
+S = identity shifted r;
+V = identity shifted v;
+z0=(0u,0u);
+z1 = z0 transformed T;
+z2 = z0 transformed S;
+z3 = z0 transformed S transformed T;
+z4 = z0 transformed V;
+z5 = z0 transformed V transformed T;
+
+z101=0.1[z0,z1]; z10=0.9[z0,z1];
+z23 = z101 transformed S; z32=z10 transformed S;
+z45 = z101 transformed V; z54=z10 transformed V;
+
+p1 = z101--z23; p2 = z4--z5;
+z11 = p1 intersectionpoint p2;
+
+
+path k[];
+
+k[1]:=z45--z54--z32--z23--cycle;
+fill k[1] withcolor green;
+
+
+
+k[3]:=z23--z101--z10--z32--cycle;
+fill k[3] withcolor bleu_ciel;
+
+k[2]:=z23--z32--z54--z11--cycle;
+fill k[2] withcolor (.75bleu_ciel+green);
+
+
+
+
+
+
+
+draw z0--z1 ;
+draw z2--z3 withcolor red;
+
+
+
+draw z101--z23 ; draw z10--z32 ;
+draw z23--z45 ; draw z32--z54 dashed evenly ;
+
+draw z4--z11 ;
+draw z11--z5 dashed evenly ;
+
+label.rt(btex $#1$ etex, z0);
+label.rt(btex $#2$ etex, z4);
+label.top(btex $#3$ etex, z2);
+
+endfig;
+end
+\end{mplibcode}
+}
+
+
+
+
+\newcommand{\haimpssPddQdd}[6]{
+\begin{mplibcode}
+input couleur;
+beginfig(11);
+
+numeric u;
+pair t,r;
+transform T,S;
+
+u= 1cm;
+t=(4u,0u); r=(1u,2u);
+T = identity shifted t;
+S = identity shifted r;
+
+%premier plan P
+z0=(0u,0u);
+z1 = z0 transformed T;
+z2 = z0 transformed S;
+z3 = z0 transformed T transformed S;
+
+
+path p;
+p:=z0--z1--z3--z2--cycle;
+fill p withcolor bleu_ciel;
+
+
+draw z0--z2;
+draw z2--z3;
+pickup pencircle scaled 2pt;
+draw z0--z1;
+draw z1--z3;
+pickup pencircle scaled 0.5pt;
+label.urt(btex $#1$ etex, z0+(0.1u,0u));
+
+
+z4 = (0.8u,1u); z5 =(4u,1.5u);draw z4--z5;
+z6 = (1u,1.6u);z7=(3.6u,0.4u);draw z6--z7;
+label.rt(btex $#2$ etex, z5);
+label.rt(btex $#3$ etex, z7);
+
+
+z10=(0u,-2.5u);
+z11 = z10 transformed T;
+z12 = z10 transformed S;
+z13 = z10 transformed T transformed S;
+
+
+path pP;
+pP:=z10--z11--z13--z12--cycle;
+fill pP withcolor green;
+
+
+draw z10--z12;
+draw z12--z13;
+pickup pencircle scaled 2pt;
+draw z10--z11;
+draw z11--z13;
+pickup pencircle scaled 0.5pt;
+label.urt(btex $#4$ etex, z10+(0.1u,0u));
+
+
+z14 = (0.8u,-1.5u); z15 =(4u,-1u);draw z14--z15;
+z16 = (1u,-0.9u);z17=(3.6u,-2.1u);draw z16--z17;
+label.rt(btex $#5$ etex, z15);
+label.rt(btex $#6$ etex, z17);
+endfig;
+end
+\end{mplibcode}
+}
+
+\newcommand{\dtssmpdPd}[3]{
+\begin{mplibcode}
+input couleur;
+beginfig(12);
+
+numeric u;
+pair t,r;
+transform T,S;
+
+u= 1cm;
+t=(4u,0u); r=(1u,2u);
+T = identity shifted t;
+S = identity shifted r;
+
+
+z0=(0u,0u);
+z1 = z0 transformed T;
+z2 = z0 transformed S;
+z3 = z0 transformed T transformed S;
+
+
+path p;
+p:=z0--z1--z3--z2--cycle;
+fill p withcolor bleu_ciel;
+
+
+draw z0--z2;
+draw z2--z3;
+pickup pencircle scaled 2pt;
+draw z0--z1;
+draw z1--z3;
+pickup pencircle scaled 0.5pt;
+label.urt(btex $#2$ etex, z0+(0.1u,0u));
+
+
+z4 = (1u,.5u);
+z5 = (4u,1u);
+draw z4--z5;
+label.top(btex $#3$ etex, z4);
+
+%la droite en dehors du plan
+z6 = (1u,2.5u);
+z7 = z6 shifted z5-z4;
+draw z6--z7;
+label.top(btex $#1$ etex, z6);
+endfig;
+end
+\end{mplibcode}
+}
+
+
+\def\today{Ngày \number\day\ tháng \number\month\ năm \number\year\ }
